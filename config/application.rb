@@ -11,6 +11,10 @@ module Workshops2023BasicApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    A9n.root = File.expand_path('..', __dir__)
+    A9n.load
+
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -19,4 +23,5 @@ module Workshops2023BasicApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
+
 end

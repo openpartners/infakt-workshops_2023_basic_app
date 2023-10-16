@@ -39,6 +39,32 @@
             <% end %>
           </ul>
         </div>
+
+
+        
+<div class="weather-info">
+<h5>Weather in <%= weather_data['location']['name'] %>, <%= weather_data['location']['country'] %></h5>
+
+  <div class="condition">
+    <img src="<%= weather_data['current']['condition']['icon'] %>" alt="Weather Icon">
+    <p><%= weather_data['current']['condition']['text'] %></p>
+  </div>
+
+  <div class="temperature">
+    <p>Temperature: <%= weather_data['current']['temp_c'] %>°C</p>
+    <p>Feels Like: <%= weather_data['current']['feelslike_c'] %>°C</p>
+  </div>
+
+  <div class="other-details">
+    <p>Wind: <%= weather_data['current']['wind_kph'] %> km/h from <%= weather_data['current']['wind_dir'] %></p>
+    <p>Humidity: <%= weather_data['current']['humidity'] %> %</p>
+    <p>UV Index: <%= weather_data['current']['uv'] %></p>
+    <p>Cloud Cover: <%= weather_data['current']['cloud'] %> %</p>
+    <p><%= render partial: "weather/show" %></p>
+  </div>
+</div>
+
+
       </div>
     </nav>
       
