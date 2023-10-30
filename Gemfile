@@ -51,3 +51,4 @@ end
 gem "sidekiq", "~> 7.1"
 
 gem 'sidekiq-cron'
+gem "bunny", ">= 2.19.0"

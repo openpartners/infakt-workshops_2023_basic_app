@@ -5,7 +5,10 @@ class BookLoansController < ApplicationController
   def create
     respond_to do |format|
       if @book_loan.save
-        LoanCreatedJob.perform_async(@book_loan.id)  
+        # Logujemy wypożyczenie książki za pomocą RabbitMQ
+        loan_publisher = Publishers::LoanBookPublisher.new(message: @book_loan.attributes, routing_key: 'basic_app.book_loans', exchange_name: 'basic_app')
+        loan_publisher.publish
+  
         format.html { redirect_to book_url(book), notice: flash_notice }
         format.json { render :show, status: :created, location: @book_loan }
       else
@@ -14,6 +17,7 @@ class BookLoansController < ApplicationController
       end
     end
   end
+  
 
   def cancel
     respond_to do |format|
