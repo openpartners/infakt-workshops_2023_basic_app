@@ -14,6 +14,13 @@ AllCops:
     - 'config.ru'
     - 'bin/**/*'
 
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/features/**/*'
+
+RSpec/AnyInstance:
+  Enabled: false
+
 Documentation:
   Enabled: false
 
